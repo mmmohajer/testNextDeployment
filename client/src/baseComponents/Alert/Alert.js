@@ -6,7 +6,7 @@ import { Div, Alert as BaseAlert, AlertItem } from 'basedesign-iswad';
 import Close from '@/baseComponents/Close';
 import styles from './Alert.module.scss';
 
-import { removeAlertItem } from 'Utils/notifications';
+import { removeAlertItem } from '@/utils/notifications';
 
 const Alert = () => {
   const dispatch = useDispatch();
