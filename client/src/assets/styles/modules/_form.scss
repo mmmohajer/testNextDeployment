@@ -14,6 +14,63 @@
   color: red;
 }
 
+.required-before {
+  &::before {
+    content: '*';
+    color: red;
+  }
+
+  &::after {
+    content: '';
+    color: red;
+  }
+}
+
+.textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border-radius: 10px;
+  display: inline-block;
+  border: 2px solid rgb(168, 166, 166);
+  min-height: 100px;
+  max-height: 300px;
+  min-width: 100%;
+  max-width: 100%;
+
+  &:hover {
+    border: 2px solid $fadedColor;
+  }
+
+  &:active {
+    border: 2px solid $fadedColor;
+  }
+
+  &:focus {
+    outline: none;
+    border: 2px solid $fadedColor;
+  }
+
+  &_container {
+    justify-content: start;
+    position: relative;
+  }
+
+  &_field_container {
+    margin-bottom: 1rem;
+  }
+
+  &_errorMessage {
+    display: none;
+    color: red;
+    position: absolute;
+    top: 1rem;
+
+    &_active {
+      display: block;
+    }
+  }
+}
 .mainInputContainer {
   width: 100%;
   margin-top: 0.2rem;
@@ -30,12 +87,13 @@
   }
 }
 
-%inputField {
+.inputField {
   width: 100%;
   border: none;
   box-shadow: $boxShadow1;
   padding: 8px 1rem;
   border: solid 1px $appGrayBrightColor;
+  height: 40px;
 
   &Container {
     position: relative;
@@ -45,23 +103,4 @@
   &:focus {
     outline: none;
   }
-}
-
-.inputField {
-  @extend %inputField;
-  height: 40px;
-
-  &Container {
-    position: relative;
-    margin-bottom: 2rem;
-  }
-}
-
-.textAreaField {
-  @extend %inputField;
-  height: 80px;
-  min-height: 40px;
-  max-height: 160px;
-  min-width: 100%;
-  max-width: 100%;
 }

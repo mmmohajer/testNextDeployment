@@ -1,0 +1,19 @@
+@import '@/styles/base/_variables';
+@import '@/styles/base/_mixins';
+
+.introduction {
+  &Row {
+    flex-direction: row-reverse;
+  }
+
+  &Button {
+    font-size: 16px;
+  }
+  &CertificateIcon {
+    margin-right: 10px;
+  }
+}
+
+.bigText {
+  font-size: 3rem;
+}

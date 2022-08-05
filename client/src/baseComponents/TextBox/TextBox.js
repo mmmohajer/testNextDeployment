@@ -1,22 +1,15 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
+import { useSelector } from 'react-redux';
 import { Div, Input as BaseInput, Label } from 'basedesign-iswad';
 
 import Icon from '@/baseComponents/Icon';
 
 import styles from './TextBox.module.scss';
 
-const TextBox = ({
-  labelText,
-  isRequired,
-  onChange,
-  val,
-  setVal,
-  errorHandler,
-  className,
-  type,
-  ...props
-}) => {
+const TextBox = ({ labelText, isRequired, className, type, ...props }) => {
+  const language = useSelector((state) => state.language);
+
   const [curType, setCurType] = useState(type);
 
   return (
@@ -24,21 +17,20 @@ const TextBox = ({
       <Div className={cx('mainInputContainer', className)}>
         {labelText && (
           <Div className={cx('labelForInputContainer')}>
-            <Label className={cx(isRequired && 'required', 'labelForInput')}>{labelText}</Label>
+            <Label
+              className={cx(
+                isRequired && 'required',
+                'labelForInput',
+                isRequired && language === 'fa' && 'required-before'
+              )}>
+              {labelText}
+            </Label>
           </Div>
         )}
         <Div className={cx('inputFieldContainer')}>
           <BaseInput
             className={cx('inputField', type === 'password' && styles.inputWithEye)}
             type={curType}
-            value={val}
-            onChange={(e) => {
-              setVal(e.target.value);
-              errorHandler('');
-              if (onChange) {
-                onChange(e);
-              }
-            }}
             {...props}
           />
           {type === 'password' && (

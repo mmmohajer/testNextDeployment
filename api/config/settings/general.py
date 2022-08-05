@@ -20,6 +20,8 @@ ALLOWED_HOSTS.extend(
 
 SITE_ID = 1
 
+CSRF_TRUSTED_ORIGINS = ['https://barezai.com/', 'https://*.barezai.com/']
+
 
 MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",

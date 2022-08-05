@@ -1,52 +1,30 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import cx from 'classnames';
+import { useSelector } from 'react-redux';
 import { Div, TextArea as BaseTextArea, Label } from 'basedesign-iswad';
 
 import styles from './TextArea.module.scss';
 
-const TextArea = ({
-  labelText,
-  val,
-  setVal,
-  errorHandler,
-  isRequired,
-  errorMessage,
-  onChange,
-  className,
-  ...props
-}) => {
+const TextArea = ({ labelText, isRequired, className, type, ...props }) => {
+  const language = useSelector((state) => state.language);
+
   return (
     <>
       <Div className={cx('mainInputContainer', className)}>
         {labelText && (
           <Div className={cx('labelForInputContainer')}>
-            <Label className={cx(isRequired && 'required', 'labelForInput')}>{labelText}</Label>
+            <Label
+              className={cx(
+                isRequired && 'required',
+                'labelForInput',
+                isRequired && language === 'fa' && 'required-before'
+              )}>
+              {labelText}
+            </Label>
           </Div>
         )}
-
-        <Div className={cx('inputFieldContainer')}>
-          <BaseTextArea
-            className={cx('textAreaField')}
-            value={val}
-            onChange={(e) => {
-              setVal(e.target.value);
-              errorHandler('');
-              if (onChange) {
-                onChange(e);
-              }
-            }}
-            {...props}
-          />
-
-          {errorMessage && (
-            <Div
-              className={cx(
-                'iswad_input_errorMessage',
-                errorMessage && 'iswad_input_errorMessage_active'
-              )}>
-              {errorMessage}
-            </Div>
-          )}
+        <Div className={cx('textAreaInputFieldContainer')}>
+          <BaseTextArea className={cx('textarea')} {...props} />
         </Div>
       </Div>
     </>

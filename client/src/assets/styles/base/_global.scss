@@ -55,3 +55,33 @@ ul {
   margin: 0 auto;
   position: relative;
 }
+
+// @font-face {
+//   font-family: BLotus;
+//   src: url('../fonts/BLotusBd.ttf') format('truetype');
+// }
+
+// .farsiFont {
+//   font-family: BLotus;
+//   line-height: 2rem;
+// }
+
+.englishFont {
+  font-family: $fontFamily;
+}
+
+.secondFont {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+p {
+  margin-bottom: 2rem;
+}
+
+.text-justify {
+  hyphens: auto;
+  text-align: justify;
+  word-wrap: break-word;
+  hyphens: auto;
+  word-spacing: -2px;
+}

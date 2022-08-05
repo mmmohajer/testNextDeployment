@@ -28,9 +28,9 @@ export const FACEBOOK_AUTH_URL = `${FACEBOOK_AUTH_BASE_URL}?client_id=${FACEBOOK
 // ---------------------------------------------------------------------------
 
 export const COLORS = {
-  primary: '#0275d8',
-  faded: '#f7f7f7',
-  info: '#5bc0de',
+  primary: '#f30a29',
+  faded: '#ff7b7b',
+  info: '#707896',
   inverse: '#292b2c',
   warning: '#f0ad4e',
   success: '#5cb85c',

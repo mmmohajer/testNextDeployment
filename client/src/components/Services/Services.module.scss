@@ -1,0 +1,45 @@
+@import '@/styles/base/_variables';
+@import '@/styles/base/_mixins';
+
+.container {
+  display: grid;
+  gap: 2rem;
+
+  @include atSmall {
+    grid-template-columns: repeat(1, 300px);
+  }
+
+  @include atMedium {
+    grid-template-columns: repeat(2, 300px);
+  }
+
+  @include atLarge {
+    grid-template-columns: repeat(3, 300px);
+  }
+}
+
+.mobContainer {
+  padding-bottom: 1rem;
+}
+
+.carouselButton {
+  position: absolute;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: $inverseColor;
+  top: 50%;
+  transform: translateY(-50%);
+  outline: none;
+  border: none;
+  font-size: 24px;
+  color: red;
+
+  &Left {
+    left: 0px;
+  }
+
+  &Right {
+    right: 0px;
+  }
+}
